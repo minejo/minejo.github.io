@@ -1,0 +1,3 @@
+User-agent:*
+Disallow: 微波探测项目规划.html
+Disallow: 微波探测会议记录.html
