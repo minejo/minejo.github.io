@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Vim</title>
+<!-- 2015-11-10 二 13:37 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Jonathan" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+<script type="text/javascript" src="http://orgmode.org/org-info.js">
+/**
+ *
+ * @source: http://orgmode.org/org-info.js
+ *
+ * @licstart  The following is the entire license notice for the
+ *  JavaScript code in http://orgmode.org/org-info.js.
+ *
+ * Copyright (C) 2012-2013 Free Software Foundation, Inc.
+ *
+ *
+ * The JavaScript code in this tag is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU
+ * General Public License (GNU GPL) as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option)
+ * any later version.  The code is distributed WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+ *
+ * As additional permission under GNU GPL version 3 section 7, you
+ * may distribute non-source (e.g., minimized or compacted) forms of
+ * that code without the copy of the GNU GPL normally required by
+ * section 4, provided you include this license notice and a URL
+ * through which recipients can access the Corresponding Source.
+ *
+ * @licend  The above is the entire license notice
+ * for the JavaScript code in http://orgmode.org/org-info.js.
+ *
+ */
+</script>
+
+<script type="text/javascript">
+
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "3");
+org_html_manager.set("LINK_HOME", "index.html");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "1");
+org_html_manager.set("VIEW", "overview");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+</script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content">
+<h1 class="title">Vim</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. VIM基本使用</a>
+<ul>
+<li><a href="#sec-1-1">1.1. 基本移动</a></li>
+<li><a href="#sec-1-2">1.2. 区域选择</a></li>
+<li><a href="#sec-1-3">1.3. 块操作</a></li>
+<li><a href="#sec-1-4">1.4. 分割窗口</a>
+<ul>
+<li><a href="#sec-1-4-1">1.4.1. 命令</a></li>
+<li><a href="#sec-1-4-2">1.4.2. 窗口间跳转</a></li>
+<li><a href="#sec-1-4-3">1.4.3. 窗口移动</a></li>
+<li><a href="#sec-1-4-4">1.4.4. 所有窗口指令</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-5">1.5. 标签页</a>
+<ul>
+<li><a href="#sec-1-5-1">1.5.1. 命令</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-6">1.6. 复制粘贴</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. VIM插件</a>
+<ul>
+<li><a href="#sec-2-1">2.1. vim插件nerdtree</a>
+<ul>
+<li><a href="#sec-2-1-1">2.1.1. 常用的快捷键</a></li>
+<li><a href="#sec-2-1-2">2.1.2. 我的配置</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-3">3. vim-config</a>
+<ul>
+<li><a href="#sec-3-1">3.1. 我的配置文件</a></li>
+<li><a href="#sec-3-2">3.2. 快捷键设置</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<blockquote>
+<p>
+VIM乃一大神器也。
+</p>
+</blockquote>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> VIM基本使用</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+该页面主要介绍我经常需要用到的关于vim操作的一些笔记。
+</p>
+</div>
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 基本移动</h3>
+<div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>0 &#x2014; 到行头
+</li>
+<li>^ &#x2014; 本行第一个非blank字符
+</li>
+<li>$ &#x2014; 行尾
+</li>
+<li>fa &#x2014; 到下一个为a的字符处
+</li>
+<li>ta &#x2014; 到下一个为a的字符前
+</li>
+<li>F，T &#x2014; 同上，方向相反
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 区域选择</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+在visual 模式下，这些命令很强大，其命令格式为
+</p>
+
+<p>
+&lt;action&gt;a&lt;object&gt; 和 &lt;action&gt;i&lt;object&gt;
+</p>
+
+<p>
+action可以是任何的命令，如 d (删除), y (拷贝), v (可以视模式选择)。
+</p>
+
+<p>
+object 可能是： w 一个单词， W 一个以空格为分隔的单词， s 一个句字， p 一个段落。也可以是一个特别的字符："、 &lsquo;、 )、 }、 ]。
+</p>
+
+<p>
+假设你有一个字符串 (map (+) (&ldquo;foo&rdquo;)).而光标键在第一个 o 的位置。
+</p>
+
+<ul class="org-ul">
+<li>vi&rdquo; → 会选择 foo.
+</li>
+<li>va&rdquo; → 会选择 &ldquo;foo&rdquo;.
+</li>
+<li>vi) → 会选择 &ldquo;foo&rdquo;.
+</li>
+<li>va) → 会选择(&ldquo;foo&rdquo;).
+</li>
+<li>v2a) → 会选择 (map (+) (&ldquo;foo&rdquo;))
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 块操作</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+块操作，典型的操作： 0 &lt;C-v&gt; &lt;C-d&gt; I&#x2013; [ESC]
+</p>
+
+<ul class="org-ul">
+<li>^ → 到行头
+</li>
+<li>&lt;C-v&gt; → 开始块操作
+</li>
+<li>&lt;C-d&gt; → 向下移动 (你也可以使用hjkl来移动光标，或是使用%，或是别的)
+</li>
+<li>I&#x2013; [ESC] → I是插入，插入“&#x2013;”，按ESC键来为每一行生效。
+</li>
+<li>$ A &#x2013; [ESC] -&gt; 行后加字符串&#x2013;
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 分割窗口</h3>
+<div class="outline-text-3" id="text-1-4">
+</div><div id="outline-container-sec-1-4-1" class="outline-4">
+<h4 id="sec-1-4-1"><span class="section-number-4">1.4.1</span> 命令</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<ul class="org-ul">
+<li>:split &#x2014;将一个文件分成上下两个窗口，可用来看一个文件的不同部分
+</li>
+<li>:close &#x2014;关闭窗口
+</li>
+<li>:only  -&#x2014;关闭其他所有窗口
+</li>
+<li>:split two.c &#x2014;用另一个文件分割窗口
+</li>
+<li>:new   -&#x2014; 新窗口编辑新文件
+</li>
+<li>:nsplit -&#x2014; 设置窗口高度，n为数值
+</li>
+<li>:vsplit -&#x2014;在左边打开新窗口
+</li>
+<li>:vnew 
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-4-2" class="outline-4">
+<h4 id="sec-1-4-2"><span class="section-number-4">1.4.2</span> 窗口间跳转</h4>
+<div class="outline-text-4" id="text-1-4-2">
+<ul class="org-ul">
+<li>CTRL-W w &#x2014;窗口间轮流跳转
+</li>
+<li>CTRL-w h &#x2014;跳左
+</li>
+<li>CTRL-W j &#x2014;跳下
+</li>
+<li>CTRL-W k &#x2014;跳上
+</li>
+<li>CTRL-W l &#x2014;跳右
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-4-3" class="outline-4">
+<h4 id="sec-1-4-3"><span class="section-number-4">1.4.3</span> 窗口移动</h4>
+<div class="outline-text-4" id="text-1-4-3">
+<ul class="org-ul">
+<li>CTRL-W K &#x2014;当前窗口移到最上
+</li>
+<li>#其他三个相似
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-4-4" class="outline-4">
+<h4 id="sec-1-4-4"><span class="section-number-4">1.4.4</span> 所有窗口指令</h4>
+<div class="outline-text-4" id="text-1-4-4">
+<ul class="org-ul">
+<li>:wall &#x2014;保存 所有
+</li>
+<li>:qall &#x2014;全部退出
+</li>
+<li>vim -o one.txt two.txt three.txt &#x2014;o参数为每个文件打开个窗口
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> 标签页</h3>
+<div class="outline-text-3" id="text-1-5">
+</div><div id="outline-container-sec-1-5-1" class="outline-4">
+<h4 id="sec-1-5-1"><span class="section-number-4">1.5.1</span> 命令</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<ul class="org-ul">
+<li>:tabedit one.c &#x2014;新标签打开一个文件
+</li>
+<li>gt &#x2014;  窗口间跳转
+</li>
+<li>:tab 命令 -&#x2014; 新标签执行命令
+</li>
+<li>:tabonly  -&#x2014;你猜～
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> 复制粘贴</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+Vim有12个粘贴版，分别是0,1,&#x2026;,9,a,&rdquo;,+，用:reg可查看各剪贴板里的内容，其中"粘贴板是最常用的，y和p命令都是操作的这个粘贴版。另一个特殊的粘贴板是+粘贴板，这是系统粘贴板。
+</p>
+
+<p>
+使用方法：
+</p>
+<ul class="org-ul">
+<li>复制：`"Ny`(N为粘贴板符号）
+</li>
+<li>粘贴: `"Np`
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> VIM插件</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> vim插件nerdtree</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+NERDTree是文件浏览器边栏，在处理大项目，有很多文件时，该插件的功能会比较舒服。
+</p>
+</div>
+
+<div id="outline-container-sec-2-1-1" class="outline-4">
+<h4 id="sec-2-1-1"><span class="section-number-4">2.1.1</span> 常用的快捷键</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<ul class="org-ul">
+<li>o: 打开文件/预览节点
+</li>
+<li>t：在新标签中打开
+</li>
+<li>T：在新标签中打开(不自动跳转过去)
+</li>
+<li>(g)i: (预览)水平分割打开
+</li>
+<li>s：垂直分割打开
+</li>
+<li>x：关闭父节点
+</li>
+<li>X：关闭所有子节点
+</li>
+<li>e：探索该目录
+</li>
+<li>D：删除该书签
+</li>
+<li>P：跳到根节点
+</li>
+<li>p：跳到父节点
+</li>
+<li>&lt;C-j&gt;:跳到下一个兄弟节点
+</li>
+<li>&lt;C-k&gt;：跳到上一个兄弟节点
+</li>
+<li>C：改变根节点为当前目录
+</li>
+<li>u：向上移动根节点一层
+</li>
+<li>R：刷新当前根节点
+</li>
+<li>I：显示/隐藏隐藏文件
+</li>
+<li>B：关闭/显示书签
+</li>
+<li>q：关闭NERDTree窗户
+</li>
+<li>A：最大化NERDTree窗口
+</li>
+<li>:Bookmark &lt;name&gt;：添加书签
+</li>
+<li>:ClearBookmark &lt;name&gt;：删除书签
+</li>
+<li>:ClearAllBookmarks: 删除所有书签
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-1-2" class="outline-4">
+<h4 id="sec-2-1-2"><span class="section-number-4">2.1.2</span> 我的配置</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<pre class="example">
+"NERD Tree
+let NERDChristmasTree=1
+let NERDTreeAutoCenter=1
+let NERDTreeMouseMode=2
+let NERDTreeBookmarksFile='/home/li/.vim/Data/NerdTreeBookmarks.txt'
+let NERDTreeShowBookmarks=1
+let NERDTreeShowFiles=1
+let NERDTreeShowHidden=0
+let NERDTreeShowLineNumbers=1
+let NERDTreeWinPos='left'
+let NERDTreeWinSize=31
+nnoremap f :NERDTreeToggle&lt;cr&gt;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> vim-config</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> 我的配置文件</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+<a href="http://git.oschina.net/minejo/MyVim/blob/master/.vimrc">vimrc</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> 快捷键设置</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li>显示/隐藏NERDTree：f
+</li>
+<li>Vimwiki:
+<ul class="org-ul">
+<li>进入wiki index:&lt;Leader&gt;ww
+</li>
+<li>新建日记：&lt;Leader&gt;w&lt;Leader&gt;w
+</li>
+<li>更新日记目录：&lt;Leader&gt;w&lt;Leader&gt;i
+</li>
+<li>标记已完成：&lt;Leader&gt;tt
+</li>
+</ul>
+</li>
+<li>显示日历：&lt;F8&gt;
+</li>
+<li>插入日期:&lt;F10&gt;    
+</li>
+<li>全选：&lt;C-A&gt;
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Jonathan</p>
+<p class="date">Created: 2015-11-10 二 13:37</p>
+<p class="creator">Emacs 24.3.50.3 (Org mode 8.0.3)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

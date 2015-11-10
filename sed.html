@@ -1,0 +1,705 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>SED</title>
+<!-- 2015-11-10 二 13:37 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Jonathan" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+<script type="text/javascript" src="http://orgmode.org/org-info.js">
+/**
+ *
+ * @source: http://orgmode.org/org-info.js
+ *
+ * @licstart  The following is the entire license notice for the
+ *  JavaScript code in http://orgmode.org/org-info.js.
+ *
+ * Copyright (C) 2012-2013 Free Software Foundation, Inc.
+ *
+ *
+ * The JavaScript code in this tag is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU
+ * General Public License (GNU GPL) as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option)
+ * any later version.  The code is distributed WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+ *
+ * As additional permission under GNU GPL version 3 section 7, you
+ * may distribute non-source (e.g., minimized or compacted) forms of
+ * that code without the copy of the GNU GPL normally required by
+ * section 4, provided you include this license notice and a URL
+ * through which recipients can access the Corresponding Source.
+ *
+ * @licend  The above is the entire license notice
+ * for the JavaScript code in http://orgmode.org/org-info.js.
+ *
+ */
+</script>
+
+<script type="text/javascript">
+
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "3");
+org_html_manager.set("LINK_HOME", "index.html");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "1");
+org_html_manager.set("VIEW", "overview");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+</script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/javascript" src="http://orgmode.org/mathjax/MathJax.js"></script>
+<script type="text/javascript">
+<!--/*--><![CDATA[/*><!--*/
+    MathJax.Hub.Config({
+        // Only one of the two following lines, depending on user settings
+        // First allows browser-native MathML display, second forces HTML/CSS
+        //  config: ["MMLorHTML.js"], jax: ["input/TeX"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+        extensions: ["tex2jax.js","TeX/AMSmath.js","TeX/AMSsymbols.js",
+                     "TeX/noUndefined.js"],
+        tex2jax: {
+            inlineMath: [ ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"], ["\\begin{displaymath}","\\end{displaymath}"] ],
+            skipTags: ["script","noscript","style","textarea","pre","code"],
+            ignoreClass: "tex2jax_ignore",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: "TeX"
+        },
+        showProcessingMessages: true,
+        displayAlign: "center",
+        displayIndent: "2em",
+
+        "HTML-CSS": {
+             scale: 100,
+             availableFonts: ["STIX","TeX"],
+             preferredFont: "TeX",
+             webFont: "TeX",
+             imageFont: "TeX",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    "MML",
+                 Firefox: "MML",
+                 Opera:   "HTML",
+                 other:   "HTML"
+             }
+        }
+    });
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content">
+<h1 class="title">SED</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Sed基本使用笔记</a>
+<ul>
+<li><a href="#sec-1-1">1.1. 命令选项</a></li>
+<li><a href="#sec-1-2">1.2. 基本使用</a>
+<ul>
+<li><a href="#sec-1-2-1">1.2.1. 替换</a></li>
+<li><a href="#sec-1-2-2">1.2.2. 使用地址</a></li>
+<li><a href="#sec-1-2-3">1.2.3. 删除行</a></li>
+<li><a href="#sec-1-2-4">1.2.4. 插入和附加文本</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-3">1.3. 高级用法</a>
+<ul>
+<li><a href="#sec-1-3-1">1.3.1. 保持空间</a></li>
+<li><a href="#sec-1-3-2">1.3.2. 跳转</a></li>
+<li><a href="#sec-1-3-3">1.3.3. 测试</a></li>
+<li><a href="#sec-1-3-4">1.3.4. 模式替代</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-4">1.4. 实用功能</a>
+<ul>
+<li><a href="#sec-1-4-1">1.4.1. 加倍行间距</a></li>
+<li><a href="#sec-1-4-2">1.4.2. 添加行号</a></li>
+<li><a href="#sec-1-4-3">1.4.3. 打印末尾行</a></li>
+<li><a href="#sec-1-4-4">1.4.4. 删除连续空白行</a></li>
+<li><a href="#sec-1-4-5">1.4.5. 删除开头空白行</a></li>
+<li><a href="#sec-1-4-6">1.4.6. 删除末尾空白行</a></li>
+<li><a href="#sec-1-4-7">1.4.7. 删除HTML标签</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Sed基本使用笔记</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+sed为流编辑器，通过预先定义的规则来处理数据流。
+</p>
+</div>
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 命令选项</h3>
+<div class="outline-text-3" id="text-1-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">选项</th>
+<th scope="col" class="left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">-e script</td>
+<td class="left">将script中指定的命令添加到运行的命令中</td>
+</tr>
+
+<tr>
+<td class="left">-f file</td>
+<td class="left">将file中指定的命令添加到运行的命令中</td>
+</tr>
+
+<tr>
+<td class="left">-n</td>
+<td class="left">不为每个命令生成输出，等待print命令输出</td>
+</tr>
+
+<tr>
+<td class="left">-i</td>
+<td class="left">保存修改结果</td>
+</tr>
+</tbody>
+</table>
+
+<hr  />
+<ul class="org-ul">
+<li>sed不对源文件进行修改，而是将处理结果输出到STDOUT上
+</li>
+<li>sed在命令行上运行多个命令是用-e选项，命令间用;分割，如:
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-bash">sed -e 's/brown/green/;s/dog/cat/' file1
+</pre>
+</div>
+<ul class="org-ul">
+<li>从文件中读取用-f参数，一行一个命令，不要;分割符号
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 基本使用</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-sec-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> 替换</h4>
+<div class="outline-text-4" id="text-1-2-1">
+</div><ol class="org-ol"><li><a id="sec-1-2-1-1" name="sec-1-2-1-1"></a>替换标记<br  /><div class="outline-text-5" id="text-1-2-1-1">
+<pre class="example">
+s/pattern/replacement/flags
+</pre>
+
+
+<p>
+有四种可用的替换标记:
+</p>
+<ul class="org-ul">
+<li>数字，表示替换第几处
+</li>
+<li>g，表示替换所有
+</li>
+<li>p，表明将原来行的内容打印出来（配合-n使用可只输出修改过的行）
+</li>
+<li>w file，将替换的结果写入的文件中去
+</li>
+</ul>
+</div>
+</li>
+
+<li><a id="sec-1-2-1-2" name="sec-1-2-1-2"></a>替换字符<br  /><div class="outline-text-5" id="text-1-2-1-2">
+<p>
+由于/经常出现在路径中，要替换的话必须要用\来转移，非常麻烦哦
+</p>
+
+<p>
+在sed中可以用其他字符来作为substitute命令中的分隔符，比如：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">sed 's!/bin/bash!/bin/zsh!' /etc/passwd
+</pre>
+</div>
+</div>
+</li></ol>
+</div>
+
+<div id="outline-container-sec-1-2-2" class="outline-4">
+<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> 使用地址</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+sed有两种寻址方式：
+</p>
+</div>
+<ol class="org-ol"><li><a id="sec-1-2-2-1" name="sec-1-2-2-1"></a>行的数字范围<br  /></li>
+<li><a id="sec-1-2-2-2" name="sec-1-2-2-2"></a>用文本模式来过滤出行<br  /><div class="outline-text-5" id="text-1-2-2-2">
+<p>
+命令各位可以为：[address]command
+</p>
+
+<p>
+也可以为
+</p>
+<pre class="example">
+address {
+    command1
+    command2
+    command3
+}
+</pre>
+</div>
+</li>
+<li><a id="sec-1-2-2-3" name="sec-1-2-2-3"></a>数字寻址<br  /><div class="outline-text-5" id="text-1-2-2-3">
+<ul class="org-ul">
+<li>替换单行： \(sed '2s/dog/cat' file\)
+</li>
+<li>替换行范围： ` sed &lsquo;2,$s/dog/cat&rsquo; file`
+</li>
+</ul>
+</div>
+</li>
+
+<li><a id="sec-1-2-2-4" name="sec-1-2-2-4"></a>文本模式过滤<br  /><div class="outline-text-5" id="text-1-2-2-4">
+<p>
+格式为/pattern/command
+pattern可以为简单的文本匹配，也可以使用正则表达式
+</p>
+</div>
+</li>
+
+<li><a id="sec-1-2-2-5" name="sec-1-2-2-5"></a>组合命令<br  /><div class="outline-text-5" id="text-1-2-2-5">
+<p>
+使用花括号将多条命令组合在一起。
+</p>
+<pre class="example">
+$ sed '2{
+&gt; s/re/re1/
+&gt; s/re2/re22/
+&gt;}' data
+</pre>
+</div>
+</li></ol>
+</div>
+
+<div id="outline-container-sec-1-2-3" class="outline-4">
+<h4 id="sec-1-2-3"><span class="section-number-4">1.2.3</span> 删除行</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<p>
+基本模式和替换差不多，只不过换成了d，而且后无替换内容。
+</p>
+
+<p>
+值得注意的是在使用文本模式来删除某个范围的行时，指定的第一个模式会打开删除功能，第二个会关闭删除功能，如果找不到第二个模式，则一直删除到文件末尾。
+如：
+</p>
+<pre class="example">
+$ cat data
+Line1
+Line2
+Line1
+Line3
+
+$ sed '/1/,/2/d' data
+Line3
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2-4" class="outline-4">
+<h4 id="sec-1-2-4"><span class="section-number-4">1.2.4</span> 插入和附加文本</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<ul class="org-ul">
+<li>插入i，在指定行前增加一行
+</li>
+<li>追加a，在指定行后增加一行
+</li>
+</ul>
+
+<p>
+格式如下：
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">sed '[address]command\new line'
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 高级用法</h3>
+<div class="outline-text-3" id="text-1-3">
+</div><div id="outline-container-sec-1-3-1" class="outline-4">
+<h4 id="sec-1-3-1"><span class="section-number-4">1.3.1</span> 保持空间</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+模式空间是一块活动缓冲区，另一块缓冲区域为保持空间。
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="left">命令</th>
+<th scope="col" class="left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="left">h</td>
+<td class="left">将模式空间复制到保持空间</td>
+</tr>
+
+<tr>
+<td class="left">H</td>
+<td class="left">将模式空间附加到保持空间</td>
+</tr>
+
+<tr>
+<td class="left">g</td>
+<td class="left">将保持空间复制到模式空间</td>
+</tr>
+
+<tr>
+<td class="left">G</td>
+<td class="left">将保持空间附加到模式空间</td>
+</tr>
+
+<tr>
+<td class="left">x</td>
+<td class="left">交换模式空间与保持空间的内容</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3-2" class="outline-4">
+<h4 id="sec-1-3-2"><span class="section-number-4">1.3.2</span> 跳转</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<p>
+[address]b [label]
+如果没有label则默认跳到文件结尾，标签格式为：label
+实例：
+</p>
+<pre class="example">
+ sed '{/first/b jump1 ; s/test/test1/
+&gt; :jump1
+&gt; s/test/test2/}'
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-1-3-3" class="outline-4">
+<h4 id="sec-1-3-3"><span class="section-number-4">1.3.3</span> 测试</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<p>
+[address]t [label]
+与t的区别在于，只有匹配成功后才跳转。
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-3-4" class="outline-4">
+<h4 id="sec-1-3-4"><span class="section-number-4">1.3.4</span> 模式替代</h4>
+<div class="outline-text-4" id="text-1-3-4">
+<p>
+用&amp;符号代替预定义模式的文本，比如：
+</p>
+<pre class="example">
+$ echo "I am jonathan" | sed 's/.onathan/"&amp;"/g'
+I am "jonathan"
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> 实用功能</h3>
+<div class="outline-text-3" id="text-1-4">
+</div><div id="outline-container-sec-1-4-1" class="outline-4">
+<h4 id="sec-1-4-1"><span class="section-number-4">1.4.1</span> 加倍行间距</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<p>
+`sed &lsquo;G&rsquo; data2//末尾也加空行`
+</p>
+
+<p>
+`sed &lsquo;$!G&rsquo; data2 //末尾不加空行`
+</p>
+
+<p>
+`sed &lsquo;/^$/d;$!G&rsquo; data //先删除所有空行，然后加倍行距`
+PS: 保持空间默认是一个空行，所以把保持空间附加到模式空间后即可加倍行距
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4-2" class="outline-4">
+<h4 id="sec-1-4-2"><span class="section-number-4">1.4.2</span> 添加行号</h4>
+<div class="outline-text-4" id="text-1-4-2">
+<p>
+`sed &lsquo;=&rsquo; data | sed &lsquo;N; s/\n/ /&rsquo;`
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4-3" class="outline-4">
+<h4 id="sec-1-4-3"><span class="section-number-4">1.4.3</span> 打印末尾行</h4>
+<div class="outline-text-4" id="text-1-4-3">
+<pre class="example">
+sed '{
+&gt; :start
+&gt; $q
+&gt; N
+&gt; 11,$D
+&gt; b start
+&gt; }' /etc/passwd
+</pre>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4-4" class="outline-4">
+<h4 id="sec-1-4-4"><span class="section-number-4">1.4.4</span> 删除连续空白行</h4>
+<div class="outline-text-4" id="text-1-4-4">
+<p>
+`sed &lsquo;<i>.</i>,/^$/!d&rsquo; data`
+</p>
+
+<p>
+区间开始地址会匹配任何含有一个字符的行，区间的结束地址会匹配一个空行。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4-5" class="outline-4">
+<h4 id="sec-1-4-5"><span class="section-number-4">1.4.5</span> 删除开头空白行</h4>
+<div class="outline-text-4" id="text-1-4-5">
+<p>
+`sed &lsquo;<i>.</i>,$!d&rsquo; data`
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4-6" class="outline-4">
+<h4 id="sec-1-4-6"><span class="section-number-4">1.4.6</span> 删除末尾空白行</h4>
+<div class="outline-text-4" id="text-1-4-6">
+<pre class="example">
+sed '{
+    &gt; :start
+    &gt; /^\n*$/{$d; N; b start}
+}' data
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-1-4-7" class="outline-4">
+<h4 id="sec-1-4-7"><span class="section-number-4">1.4.7</span> 删除HTML标签</h4>
+<div class="outline-text-4" id="text-1-4-7">
+<p>
+`sed &lsquo;s/&lt;[^&gt;]*&gt;//g;/^$d&rsquo; data`
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Jonathan</p>
+<p class="date">Created: 2015-11-10 二 13:37</p>
+<p class="creator">Emacs 24.3.50.3 (Org mode 8.0.3)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

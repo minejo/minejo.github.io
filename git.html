@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Git</title>
+<!-- 2015-11-10 二 13:37 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Jonathan" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+<script type="text/javascript" src="http://orgmode.org/org-info.js">
+/**
+ *
+ * @source: http://orgmode.org/org-info.js
+ *
+ * @licstart  The following is the entire license notice for the
+ *  JavaScript code in http://orgmode.org/org-info.js.
+ *
+ * Copyright (C) 2012-2013 Free Software Foundation, Inc.
+ *
+ *
+ * The JavaScript code in this tag is free software: you can
+ * redistribute it and/or modify it under the terms of the GNU
+ * General Public License (GNU GPL) as published by the Free Software
+ * Foundation, either version 3 of the License, or (at your option)
+ * any later version.  The code is distributed WITHOUT ANY WARRANTY;
+ * without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+ *
+ * As additional permission under GNU GPL version 3 section 7, you
+ * may distribute non-source (e.g., minimized or compacted) forms of
+ * that code without the copy of the GNU GPL normally required by
+ * section 4, provided you include this license notice and a URL
+ * through which recipients can access the Corresponding Source.
+ *
+ * @licend  The above is the entire license notice
+ * for the JavaScript code in http://orgmode.org/org-info.js.
+ *
+ */
+</script>
+
+<script type="text/javascript">
+
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+
+<!--/*--><![CDATA[/*><!--*/
+org_html_manager.set("TOC_DEPTH", "3");
+org_html_manager.set("LINK_HOME", "index.html");
+org_html_manager.set("LINK_UP", "");
+org_html_manager.set("LOCAL_TOC", "1");
+org_html_manager.set("VIEW_BUTTONS", "0");
+org_html_manager.set("MOUSE_HINT", "underline");
+org_html_manager.set("FIXED_TOC", "0");
+org_html_manager.set("TOC", "1");
+org_html_manager.set("VIEW", "overview");
+org_html_manager.setup();  // activate after the parameters are set
+/*]]>*///-->
+</script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="org-div-home-and-up">
+ <a accesskey="h" href=""> UP </a>
+ |
+ <a accesskey="H" href="index.html"> HOME </a>
+</div><div id="content">
+<h1 class="title">Git</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Git基本技巧笔记</a>
+<ul>
+<li><a href="#sec-1-1">1.1. 什么是Git</a></li>
+<li><a href="#sec-1-2">1.2. 库结构</a></li>
+<li><a href="#sec-1-3">1.3. 基本命令</a>
+<ul>
+<li><a href="#sec-1-3-1">1.3.1. 初始化仓库</a></li>
+<li><a href="#sec-1-3-2">1.3.2. 修改最近一次的提交</a></li>
+<li><a href="#sec-1-3-3">1.3.3. 提交冲突时先合并再推送</a></li>
+<li><a href="#sec-1-3-4">1.3.4. 使用别人的仓库</a></li>
+<li><a href="#sec-1-3-5">1.3.5. 本地上传代码</a></li>
+<li><a href="#sec-1-3-6">1.3.6. 查看文件状态</a></li>
+<li><a href="#sec-1-3-7">1.3.7. 查看日志</a></li>
+<li><a href="#sec-1-3-8">1.3.8. Git 分支</a></li>
+<li><a href="#sec-1-3-9">1.3.9. Git标签</a></li>
+<li><a href="#sec-1-3-10">1.3.10. 导出项目</a></li>
+<li><a href="#sec-1-3-11">1.3.11. 取消操作</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Git基本技巧笔记</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 什么是Git</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Git是用于Linux内核开发的版本控制工具。与CVS、Subversion一类的集中式版本控制工具不同，它采用了分布式版本库的作法，不需要服务器端软件，就可以运作版本控制，使得源代码的发布和交流极其方便。Git的速度很快，这对于诸如Linux kernel这样的大项目来说自然很重要。Git最为出色的是它的合并追踪（merge tracing）能力。
+实际上内核开发团队决定开始开发和使用Git来作为内核开发的版本控制系统的时候，世界开源社群的反对声音不少，最大的理由是Git太艰涩难懂，从Git的内部工作机制来说，的确是这样。但是随着开发的深入，Git的正常使用都由一些友善的命令稿来执行，使Git变得非常好用。现在，越来越多的著名项目采用Git来管理项目开发，例如：wine、U-boot等。
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> 库结构</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>hooks：存储钩子的文件夹
+</li>
+<li>logs：存储日志的文件夹
+</li>
+<li>refs：存储指向各个分支的指针（SHA-1标识）文件
+</li>
+<li>objects：存放git对象
+</li>
+<li>config：存放各种设置文档
+</li>
+<li>HEAD：指向当前所在分支的指针文件路径，一般指向refs下的某文件
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> 基本命令</h3>
+<div class="outline-text-3" id="text-1-3">
+</div><div id="outline-container-sec-1-3-1" class="outline-4">
+<h4 id="sec-1-3-1"><span class="section-number-4">1.3.1</span> 初始化仓库</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<ul class="org-ul">
+<li>$ git init #初始化git仓库
+</li>
+<li>$ touch README.md #建立README文件
+</li>
+<li>$ git add . #添加当前目录所有文件到git仓库
+</li>
+<li>$ git commit -m &lsquo;first commit&rsquo;
+</li>
+<li>$ git remote add origin git@github.com:minejo/repo.git #设置仓库
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3-2" class="outline-4">
+<h4 id="sec-1-3-2"><span class="section-number-4">1.3.2</span> 修改最近一次的提交</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<ul class="org-ul">
+<li>$ git commit &#x2013;amend -m &ldquo;commit message.&rdquo;
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3-3" class="outline-4">
+<h4 id="sec-1-3-3"><span class="section-number-4">1.3.3</span> 提交冲突时先合并再推送</h4>
+<div class="outline-text-4" id="text-1-3-3">
+<ul class="org-ul">
+<li>$ git pull
+</li>
+<li>$ git push
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3-4" class="outline-4">
+<h4 id="sec-1-3-4"><span class="section-number-4">1.3.4</span> 使用别人的仓库</h4>
+<div class="outline-text-4" id="text-1-3-4">
+<ul class="org-ul">
+<li>$ git clone repo.git
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3-5" class="outline-4">
+<h4 id="sec-1-3-5"><span class="section-number-4">1.3.5</span> 本地上传代码</h4>
+<div class="outline-text-4" id="text-1-3-5">
+<ul class="org-ul">
+<li>$ git push -u origin master
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3-6" class="outline-4">
+<h4 id="sec-1-3-6"><span class="section-number-4">1.3.6</span> 查看文件状态</h4>
+<div class="outline-text-4" id="text-1-3-6">
+<ul class="org-ul">
+<li>$ git status
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3-7" class="outline-4">
+<h4 id="sec-1-3-7"><span class="section-number-4">1.3.7</span> 查看日志</h4>
+<div class="outline-text-4" id="text-1-3-7">
+<ul class="org-ul">
+<li>$ git log
+</li>
+<li>$ git log &#x2013;pretty=online #以整洁的单行形式显示提交信息
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3-8" class="outline-4">
+<h4 id="sec-1-3-8"><span class="section-number-4">1.3.8</span> Git 分支</h4>
+<div class="outline-text-4" id="text-1-3-8">
+<ul class="org-ul">
+<li>$ git branch #查看tags
+</li>
+<li>$ git branch source #添加分支source
+</li>
+<li>$ git checkout master #切换到主分支
+</li>
+<li>$ git branch -d source #删除source分支
+</li>
+<li>$ git push origin :branchname #删除远端分支
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3-9" class="outline-4">
+<h4 id="sec-1-3-9"><span class="section-number-4">1.3.9</span> Git标签</h4>
+<div class="outline-text-4" id="text-1-3-9">
+<ul class="org-ul">
+<li>$ git tag #查看分支 
+</li>
+<li>$ git tag v1.0 #添加标签v1.0
+</li>
+<li>$ git show v1.0 #查看标签v1.0的信息
+</li>
+<li>$ git tag -a v1.0 -m &lsquo;some message&rsquo; #为之前的提交添加tag和标注
+</li>
+<li>$ git push &#x2013;tags #提交时带上标签信息
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3-10" class="outline-4">
+<h4 id="sec-1-3-10"><span class="section-number-4">1.3.10</span> 导出项目</h4>
+<div class="outline-text-4" id="text-1-3-10">
+<ul class="org-ul">
+<li>$ git archive &#x2013;format tar &#x2013;output /path/to/file.tar master
+#将master导出为tar文件
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3-11" class="outline-4">
+<h4 id="sec-1-3-11"><span class="section-number-4">1.3.11</span> 取消操作</h4>
+<div class="outline-text-4" id="text-1-3-11">
+<ul class="org-ul">
+<li>修改最后一次提交
+$ git commit &#x2013;amend
+</li>
+<li>取消已经暂存的文件
+$ git reset HEAD &lt;file&gt;
+</li>
+
+<li>取消对文件的修改
+$ git checkout &#x2013; &lt;file&gt;
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Jonathan</p>
+<p class="date">Created: 2015-11-10 二 13:37</p>
+<p class="creator">Emacs 24.3.50.3 (Org mode 8.0.3)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
