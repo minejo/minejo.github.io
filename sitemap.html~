@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Sitemap</title>
-<!-- 2015-11-02 周一 17:46 -->
+<!-- 2015-11-10 周二 20:25 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Jonathan" />
@@ -139,13 +139,25 @@ for the JavaScript code in this tag.
 <div id="content">
 <h1 class="title">Sitemap</h1>
 <ul class="org-ul">
+<li><a href="index.html">2015-11-10 Jonathan's Wiki</a>
+</li>
+<li><a href="vim.html">2015-11-10 Vim</a>
+</li>
+<li><a href="latex.html">2015-11-10 Latex</a>
+</li>
+<li><a href="git.html">2015-11-10 Git</a>
+</li>
+<li><a href="gawk.html">2015-11-10 gawk</a>
+</li>
+<li><a href="sed.html">2015-11-10 SED</a>
+</li>
+<li><a href="matlab.html">2015-11-06 Matlab</a>
+</li>
 <li><a href="meetingrecord.html">2015-11-02 会议记录</a>
 </li>
 <li><a href="projectplan.html">2015-11-02 微波探测项目规划</a>
 </li>
-<li><a href="vim.html">2015-10-27 VIM</a>
-</li>
-<li><a href="index.html">2015-10-27 Jonathan's Wiki</a>
+<li><a href="index-NSConflict-jonathanfin.html">2015-10-27 Jonathan's Wiki</a>
 </li>
 <li><a href="emacs.html">2015-10-26 Emacs</a>
 </li>
@@ -161,7 +173,7 @@ for the JavaScript code in this tag.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jonathan</p>
-<p class="date">Created: 2015-11-02 周一 17:46</p>
+<p class="date">Created: 2015-11-10 周二 20:25</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
