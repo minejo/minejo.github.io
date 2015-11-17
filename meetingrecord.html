@@ -3,8 +3,8 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>会议记录</title>
-<!-- 2015-11-10 周二 20:26 -->
+<title>微波探测与通信项目会议记录</title>
+<!-- 2015-11-17 周二 23:07 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Jonathan" />
@@ -151,7 +151,7 @@ for the JavaScript code in this tag.
 */
 
 <!--/*--><![CDATA[/*><!--*/
-org_html_manager.set("TOC_DEPTH", "3");
+org_html_manager.set("TOC_DEPTH", "1");
 org_html_manager.set("LINK_HOME", "index.html");
 org_html_manager.set("LINK_UP", "");
 org_html_manager.set("LOCAL_TOC", "0");
@@ -216,35 +216,21 @@ for the JavaScript code in this tag.
  |
  <a accesskey="H" href="index.html"> HOME </a>
 </div><div id="content">
-<h1 class="title">会议记录</h1>
+<h1 class="title">微波探测与通信项目会议记录</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1. 微波探测与通信项目会议记录</a>
-<ul>
-<li><a href="#sec-1-1">1.1. <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-16 周五&gt;</span></span></a></li>
-<li><a href="#sec-1-2">1.2. <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-02 周一&gt;</span></span></a>
-<ul>
-<li><a href="#sec-1-2-1">1.2.1. 杂波抑制方向</a></li>
-<li><a href="#sec-1-2-2">1.2.2. 杂波模型方案</a></li>
-<li><a href="#sec-1-2-3">1.2.3. CFAR</a></li>
-<li><a href="#sec-1-2-4">1.2.4. 获得运动物体轨迹</a></li>
-<li><a href="#sec-1-2-5">1.2.5. 获得运动物体大小形状</a></li>
-<li><a href="#sec-1-2-6">1.2.6. 波束赋形</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="#sec-1">1. <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-16 周五&gt;</span></span></a></li>
+<li><a href="#sec-2">2. <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-02 周一&gt;</span></span></a></li>
+<li><a href="#sec-3">3. <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-17 周二&gt;</span></span></a></li>
 </ul>
 </div>
 </div>
+
 <div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> 微波探测与通信项目会议记录</h2>
+<h2 id="sec-1"><span class="section-number-2">1</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-16 周五&gt;</span></span></h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-16 周五&gt;</span></span></h3>
-<div class="outline-text-3" id="text-1-1">
 <p>
 本次会议主要讨论了项目近两个月来的工作重心，即发表一篇专利，目前专利重心分3个部分，一个是整个探测系统架构，一个是回波处理算法，一个是网络融合架构，经过讨论决定先发表探测系统架构的专利，由闫莉师姐牵头组织
 相关事宜。
@@ -295,9 +281,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-02 周一&gt;</span></span></h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-02 周一&gt;</span></span></h2>
+<div class="outline-text-2" id="text-2">
 <p>
 参会人员: 宋昊 闫莉 李超 何励励 刘伊敏 张迪 胥秋 刘贺
 </p>
@@ -307,40 +293,32 @@ for the JavaScript code in this tag.
 </p>
 </div>
 
-<div id="outline-container-sec-1-2-1" class="outline-4">
-<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> 杂波抑制方向</h4>
-<div class="outline-text-4" id="text-1-2-1">
+<ol class="org-ol"><li><a id="sec-2-1" name="sec-2-1"></a>杂波抑制方向<br  /><div class="outline-text-3" id="text-2-1">
 <p>
 首先是刘贺和胥秋汇报的关于杂波抑制的方案，大概思路是先探测出静止杂波的回波，然后把有动物体的回波减去之前测的静止杂波的回波，理论上就可以
 抑制杂波，具体细节不在此处论述。但是该方法由于线性调频连续波的波形使得该方案的性能不好，因而最后决定放弃该方案，另外寻找杂波抑制算法，预计两周时间。
 </p>
 </div>
-</div>
+</li>
 
-<div id="outline-container-sec-1-2-2" class="outline-4">
-<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> 杂波模型方案</h4>
-<div class="outline-text-4" id="text-1-2-2">
+<li><a id="sec-2-2" name="sec-2-2"></a>杂波模型方案<br  /><div class="outline-text-3" id="text-2-2">
 <p>
 接着由何励励讲述杂波模型，基于均匀场景的杂波模型，如何模拟连续的杂波信号，但是场景是基于均匀场景，没有基于铁路方向的具体细化，而具体场景的杂波建模需要
 采用DEM建模方法，需要实地测量，花费的时间和精力过大，暂时不予考虑。下一周工作主要完成杂波的多周期仿真，以及部分细节概念理清楚。
 </p>
 </div>
-</div>
+</li>
 
-<div id="outline-container-sec-1-2-3" class="outline-4">
-<h4 id="sec-1-2-3"><span class="section-number-4">1.2.3</span> CFAR</h4>
-<div class="outline-text-4" id="text-1-2-3">
+<li><a id="sec-2-3" name="sec-2-3"></a>CFAR<br  /><div class="outline-text-3" id="text-2-3">
 <p>
 刘伊敏先讲了CFAR的一维多策略算法以及仿真，效果还可以，然后提了2维cfar的算法。接下来两周重点考虑基于铁路灾情场景确定对应的二维多策略CFAR算法，争取这个方向
 找到创新点。
 </p>
 </div>
-</div>
+</li>
 
 
-<div id="outline-container-sec-1-2-4" class="outline-4">
-<h4 id="sec-1-2-4"><span class="section-number-4">1.2.4</span> 获得运动物体轨迹</h4>
-<div class="outline-text-4" id="text-1-2-4">
+<li><a id="sec-2-4" name="sec-2-4"></a>获得运动物体轨迹<br  /><div class="outline-text-3" id="text-2-4">
 <p>
 李超讲了做的运动轨迹部分，主要讲了两种场景模型，二维和三维的。基于二维的模型，只考虑了距离和方位角，通过模拟雷达的波束扫描探测，经过多周期的
 积累获得物体的运动轨迹。三维模型增加了俯仰角，可以直接获得物体在现实场景的三维轨迹，更加清晰直白，然后缺点是扫描周期变长了，可能会导致部分区域扫描不到。
@@ -348,32 +326,121 @@ for the JavaScript code in this tag.
 基于铁路灾害场景的CFAR算法。
 </p>
 </div>
-</div>
+</li>
 
-<div id="outline-container-sec-1-2-5" class="outline-4">
-<h4 id="sec-1-2-5"><span class="section-number-4">1.2.5</span> 获得运动物体大小形状</h4>
-<div class="outline-text-4" id="text-1-2-5">
+<li><a id="sec-2-5" name="sec-2-5"></a>获得运动物体大小形状<br  /><div class="outline-text-3" id="text-2-5">
 <p>
 张迪主要负责如何获得物体大小，具体原理和运动轨迹相似，如果有相邻的相似轨迹，可认为是一个物体，根据轨迹的横向距离判断物体大小。另外还提出了一个脉冲压缩的方案，但是需要修改下以适应到连续波雷达上，具体
 方案和细节仍需一周-二周左右完善下
 </p>
 </div>
-</div>
+</li>
 
-<div id="outline-container-sec-1-2-6" class="outline-4">
-<h4 id="sec-1-2-6"><span class="section-number-4">1.2.6</span> 波束赋形</h4>
-<div class="outline-text-4" id="text-1-2-6">
+<li><a id="sec-2-6" name="sec-2-6"></a>波束赋形<br  /><div class="outline-text-3" id="text-2-6">
 <p>
 宋昊主要从波束赋形的角度分析了下波束宽度，扫描周期，探测范围的博弈关系。基于其中一个参数为优化参数进行参数确定的博弈运算还需继续完善下。
 </p>
 </div>
+</li></ol>
 </div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-17 周二&gt;</span></span></h2>
+<div class="outline-text-2" id="text-3">
+<p>
+参会人员：宋昊 闫莉 李超 何励励 刘伊敏 张迪 胥秋 刘贺
+</p>
+
+<p>
+本次会议主要是对项目组上两周的工作进度进行了汇报和总结，并确定下一步方向。
+</p>
+
+<p>
+本次做报告的主要有何励励的关于杂波模拟的报告，刘贺的关于杂波过滤预处理的报告，李超的关于cfar的报告，
+闫莉的关于铁路微波承载网络关键技术报告。
+</p>
 </div>
+
+<ol class="org-ol"><li><a id="sec-3-1" name="sec-3-1"></a>杂波模拟<br  /><div class="outline-text-3" id="text-3-1">
+<p>
+何励励主要基于DEM数据建模方案模拟杂波，通过模拟随机地形从而得到随机杂波，暂时杂波以这个为标准做测试，等半实物板子测到真实杂波数据后再
+比对杂波效果。
+</p>
+</div>
+</li>
+
+<li><a id="sec-3-2" name="sec-3-2"></a>杂波过滤预处理<br  /><div class="outline-text-3" id="text-3-2">
+<p>
+刘贺主要介绍了基于MTI技术抑制杂波的方案，然后在MTI的基础上，采用MTD技术方案，优化抑制效果。同时也说明了该方案的主要缺陷：会产生一定的盲速。
+即当运动目标的多普勒频率为f=n*f<sub>r时，这些运动目标也会被MTI滤波器抑制。</sub>
+</p>
+</div>
+</li>
+
+
+<li><a id="sec-3-3" name="sec-3-3"></a>CFAR算法<br  /><div class="outline-text-3" id="text-3-3">
+<p>
+李超首先介绍了一种基于二维变换后的CMLD-CFAR算法，通过在待测点所在行与列分别取一些点，然后排序并去除r个最大值后求平均，最后乘以系数k后与待测点
+进行比较。然后展示了仿真结果，同时也讲了上次报告中svi-cfar算法的问题。
+</p>
+
+<p>
+主要问题如下：
+</p>
+
+<ul class="org-ul">
+<li>由于二维变化后，数据的特殊分布如果用常规cfar 检测方案会导致虚警率上升
+</li>
+<li>CMLD-CFAR, SVI-CFAR方案仿真结果不是很理想，可能与一些参数的设置有关，仍需继续研究下
+</li>
+</ul>
+
+<p>
+同时，李超提出了基于二维数据特性的优化cfar算法的方案，即可以考虑多重判断，通过判断相邻多行数据是否有相同
+的尖峰点来过滤虚警点.
+</p>
+</div>
+</li>
+<li><a id="sec-3-4" name="sec-3-4"></a>毫米波融合架构的信令算法<br  /><div class="outline-text-3" id="text-3-4">
+<p>
+闫莉主要对铁路微波承载网络架构，铁路微波回传方案进行了介绍。
+</p>
+</div>
+<ol class="org-ol"><li><a id="sec-3-4-1" name="sec-3-4-1"></a>铁路微波承载网络架构<br  /><div class="outline-text-4" id="text-3-4-1">
+<p>
+主要介绍了基于云的探测与通信融合网络架构，低频RRU采用全向覆盖，负责可靠数据传输；毫米波RRU采用定向波束，负责列车通过时大容量数据传输及无列车时的环境探测。
+</p>
+</div>
+</li>
+<li><a id="sec-3-4-2" name="sec-3-4-2"></a>铁路微波回传方案<br  /><div class="outline-text-4" id="text-3-4-2">
+<ul class="org-ul">
+<li>毫米波RRU通信发现。主要介绍了毫米波RRU如何进行探测和通信的切换。可以借助低频RRU当前切换或随机接入请求情况及列车位置信息判断列车是否要驶入当前毫米波RRU覆盖范围。若有列车驶入，停止探测做通信；可以只停止当前毫米波RRU的探测，其他相邻毫米波RRU仍做探测，可能会对通信造成干扰；或者停止该低频RRU覆盖范围内所有毫米波RRU的探测。列车驶出该低频RRU覆盖范围后（结合列车位置信息及当前切换请求判断）毫米波RRU停止通信做探测。
+</li>
+<li>低频RRU与毫米波RRU通信协作。主要介绍了低频RRU与毫米波RRU功能上的独立及协作该怎样设计。
+</li>
+<li>RRU PHY。主要介绍了根据高铁场景的一些特殊性，比如用户数稀疏、运动速度快、快时变、多径稀疏，选择合适的多址及调制方式，如单载波更适合。参考信号的分布也应该根据该场景进行特殊设计。
+</li>
+</ul>
+</div>
+</li></ol>
+</li>
+
+<li><a id="sec-3-5" name="sec-3-5"></a>下一步工作分配<br  /><div class="outline-text-3" id="text-3-5">
+<ul class="org-ul">
+<li>李超、何励励、刘伊敏主攻cfar方向
+</li>
+<li>刘贺、张迪继续完善杂波滤除算法，同时利用已经生成的杂波检验杂波滤除算法有效性
+</li>
+<li>胥秋先去帮忙调仿真板，尽快调通
+</li>
+</ul>
+</div>
+</li></ol>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jonathan</p>
-<p class="date">Created: 2015-11-10 周二 20:26</p>
+<p class="date">Created: 2015-11-17 周二 23:07</p>
 <p class="creator">Emacs 24.3.50.3 (Org mode 8.0.3)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
