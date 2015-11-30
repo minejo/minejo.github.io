@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>微波探测与通信项目会议记录</title>
-<!-- 2015-11-17 周二 23:07 -->
+<!-- 2015-11-30 周一 14:41 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Jonathan" />
@@ -224,6 +224,7 @@ for the JavaScript code in this tag.
 <li><a href="#sec-1">1. <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-16 周五&gt;</span></span></a></li>
 <li><a href="#sec-2">2. <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-02 周一&gt;</span></span></a></li>
 <li><a href="#sec-3">3. <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-17 周二&gt;</span></span></a></li>
+<li><a href="#sec-4">4. <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-30 周一&gt;</span></span></a></li>
 </ul>
 </div>
 </div>
@@ -437,10 +438,67 @@ for the JavaScript code in this tag.
 </div>
 </li></ol>
 </div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-30 周一&gt;</span></span></h2>
+<div class="outline-text-2" id="text-4">
+<p>
+参会人员： 李恒超 宋昊 闫莉 李超 何励励 刘伊敏 张迪 胥秋 刘贺
+</p>
+
+<p>
+本次会议主要对上两周工作总结与汇报，同时对项目开题报告的反馈进行讨论。
+</p>
+
+<p>
+本次做报告的有刘伊敏的关于高频未授权频段的调研，刘贺的关于杂波抑制的算法，李超的关于cfar算法的改进
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="sec-4-1" name="sec-4-1"></a>高频未授权频段调研<br  /><div class="outline-text-3" id="text-4-1">
+<p>
+主要介绍了高频频段使用的情况和与场景结合时应注意的事项，比如当频段是某一个范围时大气损耗特别严重，这时应避免使用该频段
+</p>
+</div>
+</li>
+<li><a id="sec-4-2" name="sec-4-2"></a>杂波抑制算法<br  /><div class="outline-text-3" id="text-4-2">
+<p>
+主要方式还是采用脉冲压缩，mti与mtd的工作方式，工作体系还是脉冲雷达，如何与连续波雷达相互兼容还需要进一步研究。
+</p>
+</div>
+</li>
+<li><a id="sec-4-3" name="sec-4-3"></a>cfar算法改进<br  /><div class="outline-text-3" id="text-4-3">
+<p>
+通过二维的cfar，即距离向与多普勒向的cfar，综合判断是否有物体出现，然后加入优化算法，即判断该点是否为尖峰点，最后cfar效果还可以，下一步需要解决邻近物体的cfar判断问题。
+</p>
+
+<p>
+本次开会还对开题报告时的反馈进行了讨论。
+</p>
+
+<p>
+下一步可以先考虑下累积算法与稀疏算法在本项目中的有效性。
+</p>
+
+<p>
+同时李恒超老师指出对于不同的场景可以使用不同的雷达工作方式，不一定非要把所有的功能糅合到一起，比如连续波雷达在异物入侵这块可能性能好一点，脉冲雷达在ISAR成像监测滑坡这块性能好一点。
+</p>
+</div>
+</li>
+<li><a id="sec-4-4" name="sec-4-4"></a>下一步工作分配<br  /><div class="outline-text-3" id="text-4-4">
+<p>
+考虑到研三亟需把半实物平台搭建出来，因而胥秋和刘贺转到半实物组，优先考虑把半实物板子调试成功。
+</p>
+
+<p>
+雷达算法优先考虑使用连续波的工作方式解决铁路场景下的异物入侵问题，争取以这个场景发论文或者专利。
+</p>
+</div>
+</li></ol>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jonathan</p>
-<p class="date">Created: 2015-11-17 周二 23:07</p>
+<p class="date">Created: 2015-11-30 周一 14:41</p>
 <p class="creator">Emacs 24.3.50.3 (Org mode 8.0.3)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
