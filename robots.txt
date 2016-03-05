@@ -2,3 +2,4 @@
 Disallow: projectplan.html.html
 Disallow: meetingrecord.html
 Disallow: sitemap.html
+Disallow: luluqiao.html
