@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>微波探测与通信项目会议记录</title>
-<!-- 2016-06-01 周三 11:21 -->
+<!-- 2016-06-23 周四 21:41 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Jonathan" />
@@ -228,6 +228,9 @@ for the JavaScript code in this tag.
 <li><a href="#sec-5">5. <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-09 周三&gt;</span></span></a></li>
 <li><a href="#sec-6">6. <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-12-28 周一&gt;</span></span></a></li>
 <li><a href="#sec-7">7. <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-16 周三&gt;</span></span></a></li>
+<li><a href="#sec-8">8. <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-06-01 周三&gt;</span></span></a></li>
+<li><a href="#sec-9">9. <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-06-08 周三&gt;</span></span></a></li>
+<li><a href="#sec-10">10. <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-06-22 周三&gt;</span></span></a></li>
 </ul>
 </div>
 </div>
@@ -650,10 +653,102 @@ for the JavaScript code in this tag.
 </ol>
 </div>
 </div>
+
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-06-01 周三&gt;</span></span></h2>
+<div class="outline-text-2" id="text-8">
+<p>
+参会人员： 方旭明 李恒超 李超 张迪 何励励 刘伊敏
+</p>
+
+<p>
+本次开会主要由李超做报告，讲了最近的项目成果。
+</p>
+
+<p>
+汇报上主要提出了三个idea：
+</p>
+<ol class="org-ol">
+<li>基于DBSCAN的点迹凝聚算法，同时增加速度维，通过计算点迹之间的欧几里得距离来聚合，并仿真实现，效果相对理想。
+</li>
+<li>多目标的问题，提出一个简单的计算多目标上限的证明，少于这个上限雷达探测使用扫描模式，否则使用跟踪模式。
+</li>
+<li>目标匹配，基于frechet Distance算法，计算轨迹之间的相似度，同时加上速度，大小等维度的信息。
+</li>
+</ol>
+
+<p>
+经过和方老师、李老师的讨论下，基本否定了第三点的idea，主要是因为从应用需求上不合适，而且方法过于粗糙。第一个和第二个idea得到了肯定。
+</p>
+
+<p>
+同时，李老师提出了可以通过每个区域的点迹数量来判断预警，而不是每个都需要考虑运动轨迹。
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-06-08 周三&gt;</span></span></h2>
+<div class="outline-text-2" id="text-9">
+<p>
+参会人员： 方旭明 李恒超 李超 张迪 胥秋 刘贺 何励励 刘伊敏
+</p>
+
+<p>
+本次开会主要由张迪讲一下硬件部分的进展，张迪委托胥秋做汇报。
+</p>
+
+<p>
+胥秋主要讲了关于硬件的使用以及最后的成果，但是整体形式比较单一，不太符合项目需求。经过项目组的讨论后，建议可以采用多波束的方案或者单波束通过波束
+拼接的方案来拓展。
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10"><span class="section-number-2">10</span> <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-06-22 周三&gt;</span></span></h2>
+<div class="outline-text-2" id="text-10">
+<p>
+参会人员：李超 张迪 何励励 刘伊敏
+</p>
+
+<p>
+本次会议主要是由李超 何励励 刘伊敏汇报下最近的工作进展。
+</p>
+
+<p>
+首先刘伊敏在cfar上直接使用基于矩阵和十字窗的方案并仿真实现，但是从理论上来说，该方案之前已经被李超在之前的汇报中讨论并否定了，因而cfar这块几乎没有进展。
+</p>
+
+<p>
+何励励主要负责通信那块的补充拓展，由于没有准备好，本次没有做汇报，进展也不大。
+</p>
+
+<p>
+最后，李超基于月初开会讨论的结果重新把雷达探测和预警方案整理归纳了下，并提出了一些小idea。
+</p>
+
+<p>
+最后，在场的四人主要讨论了如何发表项目指标中的下一个专利。
+</p>
+
+<p>
+主要可行的方案有两个：
+</p>
+<ol class="org-ol">
+<li>基于李超的探测与预警方案整理和归纳下创新点，试试能不能发一个专利；
+</li>
+<li>基于传统的信号处理算法，包括回波处理，杂波处理，cfar等，但是这块都已经相对成熟，不太容易有新的成果。
+</li>
+</ol>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jonathan</p>
-<p class="date">Created: 2016-06-01 周三 11:21</p>
+<p class="date">Created: 2016-06-23 周四 21:41</p>
 <p class="creator">Emacs 24.3.50.3 (Org mode 8.0.3)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
